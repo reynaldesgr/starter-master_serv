@@ -11,6 +11,8 @@ N.B. : MDP des professeurs :
 - myrmirei  : myr15
 - julframb  : jufram15
 
+-----------------------------------------------------------
+
 ```/index```   : accéder à l'index.
 
 ```/students```: obtenir les étudiants.
