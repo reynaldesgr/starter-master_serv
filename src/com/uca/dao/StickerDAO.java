@@ -59,7 +59,7 @@ public class StickerDAO extends _Generic<StickerEntity> {
             /** If a sticker is assigned to a student and this sticker is about to be deleted,
                we have to delete the student too (because of foreign keys in the table
                studentsStickers) **/
-            PreparedStatement statement_bis = this.connect.prepareStatement("SELECT id FROM studentsStickers WHERE sticker = ?");
+            PreparedStatement statement_bis = this.connect.prepareStatement("SELECT id FROM studentsStickers WHERE id_sticker = ?");
             statement_bis.setInt(1,obj.getId_sticker());
             ResultSet resultSet = statement_bis.executeQuery();
 

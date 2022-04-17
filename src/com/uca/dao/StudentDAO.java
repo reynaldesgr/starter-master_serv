@@ -52,13 +52,13 @@ public class StudentDAO extends _Generic<StudentEntity> {
                 this student is about to be deleted,
                 we have to delete the student in the table studentsStickers too
                 (because of foreign keys in the table studentsStickers) **/
-            PreparedStatement statement_bis = this.connect.prepareStatement("SELECT student FROM studentsStickers WHERE student = ?");
+            PreparedStatement statement_bis = this.connect.prepareStatement("SELECT id_student FROM studentsStickers WHERE id_student = ?");
             statement_bis.setInt(1,obj.getId_student());
             ResultSet resultSet = statement_bis.executeQuery();
 
             /* If there is a student who received a sticker */
             while(resultSet.next()){
-                PreparedStatement statement_del = this.connect.prepareStatement("DELETE FROM studentsStickers WHERE student = ?");
+                PreparedStatement statement_del = this.connect.prepareStatement("DELETE FROM studentsStickers WHERE id_student = ?");
                 statement_del.setInt(1, resultSet.getInt("student"));
                 statement_del.executeUpdate();
             }
