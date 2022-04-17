@@ -6,7 +6,7 @@ Vous pouvez démarrer avec la commande `./gradlew run`.
 
 -----------------------------------------------------------
 
-NB : MDP des professeurs :
+N.B. : MDP des professeurs :
 - brunojouv : bbj15
 - myrmirei  : myr15
 - julframb  : jufram15
