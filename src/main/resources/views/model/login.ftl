@@ -1,9 +1,11 @@
+<#ftl encoding="utf-8">
 
 <html lang="fr">
 <head>
     <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
+
 <body>
     <nav>
         <a href="/index">Accueil</a>

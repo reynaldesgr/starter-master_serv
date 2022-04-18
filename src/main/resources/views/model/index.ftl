@@ -1,12 +1,15 @@
 <#ftl encoding="utf-8">
 
-<html>
+<html lang="fr">
 <head>
-<title> Bienvenue </title>
+    <title> Bienvenue </title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
-    <body>
-    <h1> Accueil </h1>
-    <h2>${index_title}</h2>
+
+<body>
+    <main>
+        <h1> Accueil </h1>
+        <h2>${index_title}</h2>
         <#if user_log??>
             <p> Vous êtes connecté en tant que <strong> ${user_log} </strong> </p>
         </#if>
@@ -22,5 +25,6 @@
         <#else>
             <a href="/login"> Se connecter </a>
         </#if>
-    </body>
+    </main>
+</body>
 </html>
