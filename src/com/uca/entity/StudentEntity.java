@@ -1,12 +1,12 @@
 package com.uca.entity;
 
-import java.util.Date;
-
 public class StudentEntity {
     protected int id_student;
     private String firstName;
     private String lastName;
     private String student_class;
+
+    private ClassEntity classEntity;
 
     public StudentEntity() {
         // Ignored
@@ -33,9 +33,25 @@ public class StudentEntity {
         this.lastName = lastName;
     }
 
-    public String getStudent_class() {
-        return this.student_class;
+    public String getClassName () {
+        if (classEntity == null) {
+            return "Null";
+        }
+        return getClassEntity().getClassname();
     }
+
+    public ClassEntity getClassEntity() {
+        return this.classEntity;
+    }
+
+    public void setClassEntity(ClassEntity classEntity) {
+        if (classEntity == null) {
+            classEntity = new ClassEntity();
+        }
+        classEntity.add(this);
+        this.classEntity = classEntity;
+    }
+
     public void setStudent_class(String studentClass) {
         this.student_class = studentClass;
     }
