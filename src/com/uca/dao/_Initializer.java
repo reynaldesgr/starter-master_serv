@@ -38,6 +38,7 @@ public class _Initializer {
             statement.executeUpdate();
 
             // StudentsStickers table //
+
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS studentsStickers (id int primary key auto_increment, id_student int, id_sticker int, id_teacher int, reason varchar(500), date_sticker date, foreign key(id_sticker) references stickers(id_sticker), foreign key(id_teacher) references teachers(id_teacher), foreign key(id_student) references students(id_student)); ");
             statement.executeUpdate();
 
@@ -45,7 +46,7 @@ public class _Initializer {
             /** Insert into, uncomment to use / comment to desactivate **/
 
             /** Students **/
-            /*
+
             statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, student_class) VALUES(?, ?, ?);");
             statement.setString(1, "Theodore");
             statement.setString(2, "Muillerez");
@@ -70,10 +71,10 @@ public class _Initializer {
             statement.setString(1, "Julie");
             statement.setString(2, "Roberts");
             statement.setString(3, "C2");
-            statement.executeUpdate();*/
+            statement.executeUpdate();
 
             /** Stickers **/
-            /*
+
             statement = connection.prepareStatement("INSERT INTO stickers(description, color) VALUES(?, ?);");
             statement.setString(1, "Mauvais comportement");
             statement.setString(2, "ROUGE");
@@ -85,10 +86,10 @@ public class _Initializer {
             statement = connection.prepareStatement("INSERT INTO stickers(description, color) VALUES(?, ?);");
             statement.setString(1, "Bonne participation");
             statement.setString(2, "BLEU");
-            statement.executeUpdate();*/
+            statement.executeUpdate();
             
             /** Teachers **/
-            /*
+
             statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
             statement.setString(2, "Myrtille");
             statement.setString(1, "Mireille");
@@ -108,7 +109,7 @@ public class _Initializer {
             statement.setString(1, "Bruno");
             statement.setString(3, "brunojouv");
             statement.setString(4, "bbj15");
-            statement.executeUpdate();*/
+            statement.executeUpdate();
             /**                                     **/
 
 
