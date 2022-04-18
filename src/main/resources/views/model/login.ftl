@@ -7,9 +7,6 @@
 </head>
 
 <body>
-    <nav>
-        <a href="/index">Accueil</a>
-    </nav>
     <main>
         <h2>${login_title}</h2><br>
         <div class="login">

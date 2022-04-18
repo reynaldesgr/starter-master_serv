@@ -14,7 +14,7 @@
         <ul>
             <#list students as student>
                 <li>${student.id_student} - ${student.firstName} ${student.lastName} <br/>
-                    <strong> Classe </strong> : ${student.student_class}<br/>
+                    <strong> Classe </strong> : ${student.classEntity.classname}<br/>
                     <#if userlog??> <a href="delete-student/${student.id_student}"> Supprimer </a> </#if>
                 </li>
             </#list>
