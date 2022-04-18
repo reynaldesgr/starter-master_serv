@@ -86,6 +86,7 @@ public class _Initializer {
             statement.setString(1, "Bonne participation");
             statement.setString(2, "BLEU");
             statement.executeUpdate();*/
+            
             /** Teachers **/
             /*
             statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
