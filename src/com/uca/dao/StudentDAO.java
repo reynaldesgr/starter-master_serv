@@ -1,5 +1,6 @@
 package com.uca.dao;
 
+import com.uca.core.ClassCore;
 import com.uca.entity.StudentEntity;
 
 import java.sql.*;
@@ -18,7 +19,8 @@ public class StudentDAO extends _Generic<StudentEntity> {
                 entity.setId_student(resultSet.getInt("id_student"));
                 entity.setFirstName(resultSet.getString("firstname"));
                 entity.setLastName(resultSet.getString("lastname"));
-                entity.setStudent_class(resultSet.getString("student_class"));
+                entity.setId_classroom(resultSet.getInt("id_classroom"));
+                entity.setClassEntity(ClassCore.getClassById(entity.getId_classroom()));
 
                 entities.add(entity);
             }
@@ -33,10 +35,10 @@ public class StudentDAO extends _Generic<StudentEntity> {
     @Override
     public StudentEntity create(StudentEntity obj) {
         try {
-            PreparedStatement statement = this.connect.prepareStatement("INSERT INTO students(firstname, lastname, student_class) VALUES(?, ?, ?);");
+            PreparedStatement statement = this.connect.prepareStatement("INSERT INTO students(firstname, lastname, id_classroom) VALUES(?, ?, ?);");
             statement.setString(1, obj.getFirstName());
             statement.setString(2, obj.getLastName());
-            statement.setString(3, obj.getClassName());
+            statement.setInt(3, obj.getId_classroom());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,10 +72,10 @@ public class StudentDAO extends _Generic<StudentEntity> {
         }
     }
 
-    public void updateStudent(int id, String student_class){
+    public void updateStudent(int id, int id_classroom){
         try{
-            PreparedStatement statement = this.connect.prepareStatement("UPDATE students SET student_class = ?  WHERE id_student = ?");
-            statement.setString(1, student_class);
+            PreparedStatement statement = this.connect.prepareStatement("UPDATE students SET id_classroom = ?  WHERE id_student = ?");
+            statement.setInt(1, id_classroom);
             statement.setInt(2, id);
             statement.executeUpdate();
         }catch (SQLException e){
@@ -93,6 +95,8 @@ public class StudentDAO extends _Generic<StudentEntity> {
                 s.setId_student(resultSet.getInt("id_student"));
                 s.setFirstName(resultSet.getString("firstname"));
                 s.setLastName(resultSet.getString("lastname"));
+                s.setId_classroom(resultSet.getInt("id_classroom"));
+                s.setClassEntity(ClassCore.getClassById(s.getId_classroom()));
             }
             return s;
         }catch (SQLException e){

@@ -180,8 +180,8 @@ public class StartServer {
 
         post("/update-student", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
-                int id_student = Integer.parseInt(req.queryParams("name").split(" ")[0]);
-                String new_student_class = req.queryParams("class");
+                int id_student = Integer.parseInt(req.queryParams("name"));
+                int new_student_class = Integer.parseInt(req.queryParams("studentclass"));
                 StudentCore.updateStudent(id_student, new_student_class);
                 res.redirect("/students");
             }else{
@@ -194,7 +194,7 @@ public class StartServer {
             if(LogSessionSecurity.getSessionUser(req) != null){
                 String firstname = req.queryParams("firstname");
                 String lastname = req.queryParams("lastname");
-                String student_class = req.queryParams("studentclass");
+                int student_class = Integer.parseInt(req.queryParams("studentclass"));
                 StudentCore.createStudent(firstname, lastname, student_class);
                 res.redirect("/students");
             }else{

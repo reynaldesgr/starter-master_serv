@@ -6,7 +6,7 @@
 <ul>
     <#list students as student>
         <li>${student.id_student} - ${student.firstName} ${student.lastName} <br/>
-            <strong> Classe </strong> : ${student.student_class}<br/>
+            <strong> Classe </strong> : ${student.classEntity.classname}<br/>
             <#if userlog??> <a href="delete-student/${student.id_student}"> Supprimer </a> </#if>
         </li>
     </#list>
@@ -26,7 +26,11 @@
                     <br><br>
                     <label><b>Classe</b>
                     </label>
-                    <input type="text" name="studentclass" id="studentclass" placeholder="Classe">
+                    <SELECT name = "studentclass" size = "1">
+                        <#list classes as class>
+                        <OPTION value="${class.idClass}"> ${class.idClass} - ${class.classname}
+                            </#list>
+                    </SELECT>
                     <br><br>
                     <input type="submit" name="log" id="log" value="Confirmer">
                     <br><br>
@@ -38,11 +42,15 @@
                 <form id = "studentclass" method="post" action="/update-student">
                 <SELECT name = "name" size = "1">
                     <#list students as student>
-                        <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
+                        <OPTION value="${student.id_student}"> ${student.id_student} - ${student.firstName} ${student.lastName}
                     </#list>
                 </SELECT>
-                <label for="class"> dans la classe :</label>
-                    <input type="text" id="class" name="class"><br><br>
+                <label for="studentclass"> dans la classe :</label>
+                <SELECT name = "studentclass" id="studentclass" size = "1">
+                    <#list classes as class>
+                    <OPTION value="${class.idClass}"> ${class.idClass} - ${class.classname}
+                        </#list>
+                </SELECT>
                 <input type="submit" name="sub_class" id="sub_class" value="Confirmer">
                 </form>
         </section>

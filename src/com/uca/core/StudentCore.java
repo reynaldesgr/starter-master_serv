@@ -12,11 +12,12 @@ public class StudentCore {
     }
 
     /** Create a student in the databse **/
-    public static StudentEntity createStudent(String firstname, String lastname, String student_class){
+    public static StudentEntity createStudent(String firstname, String lastname, int id_classroom){
         StudentEntity s = new StudentEntity();
         s.setFirstName(firstname);
         s.setLastName(lastname);
-        s.setStudent_class(student_class);
+        s.setId_classroom(id_classroom);
+        s.setClassEntity(ClassCore.getClassById(id_classroom));
         return new StudentDAO().create(s);
     }
 
@@ -28,7 +29,7 @@ public class StudentCore {
         new StudentDAO().delete(student);
     }
 
-    public static void updateStudent(int id, String student_class){
-        new StudentDAO().updateStudent(id, student_class);
+    public static void updateStudent(int id, int id_classroom){
+        new StudentDAO().updateStudent(id, id_classroom);
     }
 }

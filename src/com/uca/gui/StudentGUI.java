@@ -1,5 +1,6 @@
 package com.uca.gui;
 
+import com.uca.core.ClassCore;
 import com.uca.core.StickerCore;
 import com.uca.core.StudentCore;
 import freemarker.template.Configuration;
@@ -24,6 +25,7 @@ public class StudentGUI {
         }
         input.put("stickers", StickerCore.getAllStickers());
         input.put("students", StudentCore.getAllStudents());
+        input.put("classes", ClassCore.getAllClasses());
         input.put("id_stickers", StickerCore.getAllStickers());
 
         Writer output = new StringWriter();

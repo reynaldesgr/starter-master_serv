@@ -4,9 +4,17 @@ public class StudentEntity {
     protected int id_student;
     private String firstName;
     private String lastName;
-    private String student_class;
 
+    private int id_classroom;
     private ClassEntity classEntity;
+
+    public int getId_classroom() {
+        return id_classroom;
+    }
+
+    public void setId_classroom(int id_classroom) {
+        this.id_classroom = id_classroom;
+    }
 
     public StudentEntity() {
         // Ignored
@@ -45,14 +53,6 @@ public class StudentEntity {
     }
 
     public void setClassEntity(ClassEntity classEntity) {
-        if (classEntity == null) {
-            classEntity = new ClassEntity();
-        }
-        classEntity.add(this);
         this.classEntity = classEntity;
-    }
-
-    public void setStudent_class(String studentClass) {
-        this.student_class = studentClass;
     }
 }
