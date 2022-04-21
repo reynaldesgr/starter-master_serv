@@ -13,16 +13,16 @@ public class _Initializer {
             //Init articles table
             /** Drop table, uncomment to use / comment to desactivate **/
 
-//            statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
-//            statement.executeUpdate();
-//            statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
-//            statement.executeUpdate();
-//            statement = connection.prepareStatement("DROP TABLE IF EXISTS stickers");
-//            statement.executeUpdate();
-//            statement = connection.prepareStatement("DROP TABLE IF EXISTS classroom");
-//            statement.executeUpdate();
-//            statement = connection.prepareStatement("DROP TABLE IF EXISTS teachers");
-//            statement.executeUpdate();
+        //    statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
+        //    statement.executeUpdate();
+        //    statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
+        //    statement.executeUpdate();
+        //    statement = connection.prepareStatement("DROP TABLE IF EXISTS stickers");
+        //    statement.executeUpdate();
+        //    statement = connection.prepareStatement("DROP TABLE IF EXISTS classroom");
+        //    statement.executeUpdate();
+        //    statement = connection.prepareStatement("DROP TABLE IF EXISTS teachers");
+        //    statement.executeUpdate();
             /**                                                     **/
 
 
@@ -57,37 +57,37 @@ public class _Initializer {
             /** Teachers **/
 //            statement = connection.prepareStatement("DELETE FROM teachers WHERE id_teacher = 0");
 //            statement.executeUpdate();
-//            statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES (0, 'Aucun', 'Aucun', 'Aucun', 'Aucun');");
-//            statement.executeUpdate();
+        //    statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES (0, 'Aucun', 'Aucun', 'Aucun', 'Aucun');");
+        //    statement.executeUpdate();
 
-//            statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES(?, ?, ?, ?, ?);");
-//            statement.setInt(1, 1);
-//            statement.setString(3, "Myrtille");
-//            statement.setString(2, "Mireille");
-//            statement.setString(4, "myrmirei");
-//            statement.setString(5, "myr15");
-//            statement.executeUpdate();
-//
-//            statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
-//            statement.setString(2, "Framboise");
-//            statement.setString(1, "Julien");
-//            statement.setString(3, "julframb");
-//            statement.setString(4, "jufram15");
-//            statement.executeUpdate();
-//
-//            statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
-//            statement.setString(2, "Jouveneau");
-//            statement.setString(1, "Bruno");
-//            statement.setString(3, "brunojouv");
-//            statement.setString(4, "bbj15");
-//            statement.executeUpdate();
+        //    statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES(?, ?, ?, ?, ?);");
+        //    statement.setInt(1, 1);
+        //    statement.setString(3, "Myrtille");
+        //    statement.setString(2, "Mireille");
+        //    statement.setString(4, "myrmirei");
+        //    statement.setString(5, "myr15");
+        //    statement.executeUpdate();
+
+        //    statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
+        //    statement.setString(2, "Framboise");
+        //    statement.setString(1, "Julien");
+        //    statement.setString(3, "julframb");
+        //    statement.setString(4, "jufram15");
+        //    statement.executeUpdate();
+
+        //    statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
+        //    statement.setString(2, "Jouveneau");
+        //    statement.setString(1, "Bruno");
+        //    statement.setString(3, "brunojouv");
+        //    statement.setString(4, "bbj15");
+        //    statement.executeUpdate();
 
             /** Classroom **/
 
 //            statement = connection.prepareStatement("DELETE  FROM classroom WHERE id_classroom = 0");
 //            statement.executeUpdate();
-//            statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES (0, 'Aucun', 0);");
-//            statement.executeUpdate();
+        //    statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES (0, 'Aucun', 0);");
+        //    statement.executeUpdate();
 
 //            statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES(?, ?, ?);");
 //            statement.setInt(1, 1);

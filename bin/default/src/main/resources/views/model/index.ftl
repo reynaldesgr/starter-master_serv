@@ -21,6 +21,7 @@
             <br/>
             <a href="/put-students"> Modifier/Ajouter un élève </a><br/>
             <a href="/put-stickers"> Mettre des gommettes </a><br/><br/>
+            <a href="/put-classes"> Gestion de classes </a><br/><br/>
             <a href="/disconnect"> Se déconnecter </a>
         <#else>
             <a href="/login"> Se connecter </a>

@@ -2,8 +2,8 @@
 
 <html lang="fr">
 <head>
-    <title> Bienvenue </title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <title> Bienvenue </title>
 </head>
 
 <body>

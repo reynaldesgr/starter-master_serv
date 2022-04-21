@@ -13,7 +13,8 @@
                         <#list consult_stickers as student_sticker>
                                 <li> ${student_sticker.id} ${student_sticker.color_sticker} -  N° élève: ${student_sticker.id_student} :
                                 ${student_sticker.student_firstname} ${student_sticker.student_lastname}
-                                <br/> par ${student_sticker.teacher_firstname} ${student_sticker.teacher_lastname} </br>
+                                <br/> <strong> Description </strong> : ${student_sticker.sticker.description}
+                                <br/> <strong> par </strong> : ${student_sticker.teacher_firstname} ${student_sticker.teacher_lastname} </br>
                                 <strong> Raison </strong> : ${student_sticker.reason}
                                 <a href="/delete-student-sticker/${student_sticker.id}"> Supprimer </a> </li>
                                 <br/><br/>

@@ -11,8 +11,11 @@
         <h1> Liste des professeurs </h1>
         <ul>
             <#list teachers as teacher>
-                <li>${teacher.id_teacher} - ${teacher.lastName} ${teacher.firstName}<br/>
-                 [<strong> username </strong>] : ${teacher.userName}</li>
+                <#assign teacherId=teacher.id_teacher/>
+                <#if teacherId!=0 >
+                    <li>${teacher.id_teacher} - ${teacher.lastName} ${teacher.firstName}<br/>
+                        [<strong> username </strong>] : ${teacher.userName}</li>
+                </#if>
             </#list>
         </ul>
         <br/>
