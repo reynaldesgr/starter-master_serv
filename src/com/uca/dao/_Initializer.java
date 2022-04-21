@@ -15,8 +15,6 @@ public class _Initializer {
 
 //            statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
 //            statement.executeUpdate();
-//
-//
 //            statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
 //            statement.executeUpdate();
 //            statement = connection.prepareStatement("DROP TABLE IF EXISTS stickers");
@@ -29,11 +27,11 @@ public class _Initializer {
 
 
             // Teachers table //
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS teachers (id_teacher int primary key, firstname varchar(100), lastname varchar(100), username varchar(100), password varchar(10))");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS teachers (id_teacher int primary key auto_increment, firstname varchar(100), lastname varchar(100), username varchar(100), password varchar(10))");
             statement.executeUpdate();
 
             // Class table //
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS classroom (id_classroom int primary key, classname varchar(100), id_teacher int, foreign key(id_teacher) references teachers(id_teacher)); ");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS classroom (id_classroom int primary key auto_increment, classname varchar(100), id_teacher int, foreign key(id_teacher) references teachers(id_teacher)); ");
             statement.executeUpdate();
 
             statement.executeUpdate();
@@ -57,9 +55,13 @@ public class _Initializer {
             /** Insert into, uncomment to use / comment to desactivate **/
 
             /** Teachers **/
+//            statement = connection.prepareStatement("DELETE FROM teachers WHERE id_teacher = 0");
+//            statement.executeUpdate();
+//            statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES (0, 'Aucun', 'Aucun', 'Aucun', 'Aucun');");
+//            statement.executeUpdate();
 
 //            statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES(?, ?, ?, ?, ?);");
-//            statement.setInt(1, 0);
+//            statement.setInt(1, 1);
 //            statement.setString(3, "Myrtille");
 //            statement.setString(2, "Mireille");
 //            statement.setString(4, "myrmirei");
@@ -82,14 +84,19 @@ public class _Initializer {
 
             /** Classroom **/
 
+//            statement = connection.prepareStatement("DELETE  FROM classroom WHERE id_classroom = 0");
+//            statement.executeUpdate();
+//            statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES (0, 'Aucun', 0);");
+//            statement.executeUpdate();
+
 //            statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES(?, ?, ?);");
 //            statement.setInt(1, 1);
 //            statement.setString(2, "C1");
-//            statement.setInt(3, 0);
+//            statement.setInt(3, 1);
 //            statement.executeUpdate();
 //            statement.setInt(1, 2);
 //            statement.setString(2, "C2");
-//            statement.setInt(3, 0);
+//            statement.setInt(3, 1);
 //            statement.executeUpdate();
 
             /** Students **/

@@ -1,6 +1,7 @@
 package com.uca.core;
 
 import com.uca.dao.ClassDAO;
+import com.uca.dao.StudentDAO;
 import com.uca.entity.*;
 
 import java.util.ArrayList;
@@ -10,12 +11,11 @@ public class ClassCore {
         return new ClassDAO().getAllClasses();
     }
 
-    public static ClassEntity createClass(int id_classroom, String classname, int id_teacher){
+    public static ClassEntity createClass(String classname, int id_teacher){
         ClassEntity classroom = new ClassEntity();
-        classroom.setIdClass(id_classroom);
         classroom.setClassname(classname);
         classroom.setIdTeacher(id_teacher);
-        return new ClassDAO().create(classroom  );
+        return new ClassDAO().create(classroom);
     }
 
     public static ClassEntity getClassById(int id){
@@ -23,6 +23,12 @@ public class ClassCore {
     }
 
     public static void delete(ClassEntity classroom){
-         new ClassDAO().delete(classroom);
+        if (classroom.getIdClass() != 0) {
+            new ClassDAO().delete(classroom);
+        }
+    }
+
+    public static void updateClass(int id_class, String newName, int id_teacher) {
+        new ClassDAO().updateClass(id_class, newName, id_teacher);
     }
 }

@@ -2,6 +2,7 @@ package com.uca;
 
 import com.uca.core.*;
 import com.uca.dao._Initializer;
+import com.uca.entity.ClassEntity;
 import com.uca.entity.StickerEntity;
 import com.uca.entity.StudentEntity;
 import com.uca.entity.StudentStickerEntity;
@@ -31,6 +32,11 @@ public class StartServer {
         /* Students */
         get("/students", (req, res) -> {
             return StudentGUI.getAllStudents(req);
+        });
+
+        /* Classes */
+        get("/classes", (req, res) -> {
+            return ClassesGUI.getAllClasses(req);
         });
 
         /* Teachers */
@@ -72,6 +78,16 @@ public class StartServer {
         get("/put-students", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 return StudentGUI.getAllStudents(req);
+            }else{
+                res.redirect("/index");
+            }
+            return null;
+        });
+
+        /* Add/Remove/Modify class(es) */
+        get("/put-classes", (req, res) ->{
+            if(LogSessionSecurity.getSessionUser(req) != null){
+                return ClassesGUI.getAllClasses(req);
             }else{
                 res.redirect("/index");
             }
@@ -134,6 +150,18 @@ public class StartServer {
             return null;
         });
 
+        /* Delete a class  */
+        get("delete-class/:id", (req, res) ->{
+            if(LogSessionSecurity.getSessionUser(req) != null){
+                ClassEntity class_to_remove = ClassCore.getClassById(Integer.parseInt(req.params(":id")));
+                ClassCore.delete(class_to_remove);
+                res.redirect("/classes");
+            }else{
+                res.redirect("/index");
+            }
+            return null;
+        });
+
 
         /** -- POST -- **/
 
@@ -190,6 +218,19 @@ public class StartServer {
             return null;
         });
 
+        post("/update-classes", (req, res) ->{
+            if(LogSessionSecurity.getSessionUser(req) != null){
+                int id_class = Integer.parseInt(req.queryParams("classId"));
+                String newName = req.queryParams("classname");
+                int id_teacher = Integer.parseInt(req.queryParams("classTeacher"));
+                ClassCore.updateClass(id_class, newName, id_teacher);
+                res.redirect("/put-classes");
+            }else{
+                res.redirect("/index");
+            }
+            return null;
+        });
+
         post("/add-student", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 String firstname = req.queryParams("firstname");
@@ -197,6 +238,18 @@ public class StartServer {
                 int student_class = Integer.parseInt(req.queryParams("studentclass"));
                 StudentCore.createStudent(firstname, lastname, student_class);
                 res.redirect("/students");
+            }else{
+                res.redirect("/index");
+            }
+            return null;
+        });
+
+        post("/add-classroom", (req, res) ->{
+            if(LogSessionSecurity.getSessionUser(req) != null){
+                String classname = req.queryParams("classname");
+                int teacherId = Integer.parseInt(req.queryParams("classTeacher"));
+                ClassCore.createClass(classname, teacherId);
+                res.redirect("/put-classes");
             }else{
                 res.redirect("/index");
             }

@@ -25,4 +25,5 @@ public abstract class _Generic<T> {
      * @param id
      */
     public abstract T getById(int id);
+
 }

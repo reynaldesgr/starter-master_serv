@@ -4,6 +4,15 @@ public class ClassEntity {
     private int idClass;
     private String classname;
     private int idTeacher;
+    private TeacherEntity teacher;
+
+    public TeacherEntity getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(TeacherEntity teacher) {
+        this.teacher = teacher;
+    }
 
     public int getIdTeacher() {
         return idTeacher;

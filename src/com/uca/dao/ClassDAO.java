@@ -22,6 +22,7 @@ public class ClassDAO extends _Generic<ClassEntity> {
                 entity.setIdClass(resultSet.getInt("id_classroom"));
                 entity.setClassname(resultSet.getString("classname"));
                 entity.setIdTeacher(resultSet.getInt("id_teacher"));
+                entity.setTeacher(new TeacherDAO().getById(entity.getIdTeacher()));
                 entities.add(entity);
             }
         }catch (SQLException e){
@@ -33,10 +34,9 @@ public class ClassDAO extends _Generic<ClassEntity> {
     @Override
     public ClassEntity create(ClassEntity obj) {
         try {
-            PreparedStatement statement = this.connect.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES(?, ?, ?);");
-            statement.setInt(1, obj.getIdClass());
-            statement.setString(2, obj.getClassname());
-            statement.setInt(3, obj.getIdTeacher());
+            PreparedStatement statement = this.connect.prepareStatement("INSERT INTO classroom(classname, id_teacher) VALUES(?, ?);");
+            statement.setString(1, obj.getClassname());
+            statement.setInt(2, obj.getIdTeacher());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,11 +71,24 @@ public class ClassDAO extends _Generic<ClassEntity> {
                 c.setIdClass(resultSet.getInt("id_classroom"));
                 c.setClassname(resultSet.getString("classname"));
                 c.setIdTeacher(resultSet.getInt("id_teacher"));
+                c.setTeacher(new TeacherDAO().getById(c.getIdTeacher()));
             }
             return c;
         }catch (SQLException e){
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void updateClass(int id_class, String newName, int id_teacher) {
+        try{
+            PreparedStatement statement = this.connect.prepareStatement("UPDATE classroom SET classname = ?, id_teacher = ?  WHERE id_classroom = ?");
+            statement.setString(1, newName);
+            statement.setInt(2, id_teacher);
+            statement.setInt(3, id_class);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

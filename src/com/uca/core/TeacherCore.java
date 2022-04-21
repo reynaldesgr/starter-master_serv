@@ -22,7 +22,7 @@ public class TeacherCore {
     /** Check if a username corresponds to a password in the database **/
     public static boolean checkLogin(String username, String password){
         TeacherEntity t = getTeacherByUsername(username);
-        if(t == null){
+        if(t == null || t.getId_teacher() == 0){
             return false;
         }else if(t != null){
             if(t.getPassword().equals(password)){
