@@ -170,7 +170,7 @@ public class StartServer {
         post("/login", (req, res) ->{
             String username = req.queryParams("username");
             String password = req.queryParams("password");
-            if(TeacherCore.checkLogin(username, HashPasswordSecurity.getHash(password))){
+            if(TeacherCore.checkLogin(username, password)){
                 Session session = req.session(true);
                 req.session().attribute("username", username);
                 res.redirect("/index");

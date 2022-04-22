@@ -2,6 +2,7 @@ package com.uca.core;
 
 import com.uca.dao.TeacherDAO;
 import com.uca.entity.TeacherEntity;
+import com.uca.security.HashPasswordSecurity;
 
 import java.util.ArrayList;
 
@@ -20,16 +21,8 @@ public class TeacherCore {
 
 
     /** Check if a username corresponds to a password in the database **/
-    public static boolean checkLogin(String username, String password){
+    public static boolean checkLogin(String username, String password) throws Exception {
         TeacherEntity t = getTeacherByUsername(username);
-        if(t == null || t.getId_teacher() == 0){
-            return false;
-        }else if(t != null){
-            if(t.getPassword().equals(password)){
-                return true;
-            }else{
-                return false;
-            }
-        }   return false;
+        return HashPasswordSecurity.check(password, t.getPassword());
     }
 }
