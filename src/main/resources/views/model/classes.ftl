@@ -6,8 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 
-
-<a href="/index"> Retourner à l'accueil </a>
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des classes </h1>
@@ -27,7 +25,7 @@
                 <h2> Ajouter une classe </h2>
                 <p> Précisez le nom et le professeur de la classe. </p>
                 <form id="addClassroom" method="post" action="/add-classroom">
-                    <label><b>Nom</b>
+                    <label><b>Nom de la classe : </b>
                     </label>
                     <input type="text" name="classname" id="classname" placeholder="Nom">
                     <br><br>

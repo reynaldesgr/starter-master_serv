@@ -7,6 +7,7 @@ import com.uca.entity.StickerEntity;
 import com.uca.entity.StudentEntity;
 import com.uca.entity.StudentStickerEntity;
 import com.uca.gui.*;
+import com.uca.security.HashPasswordSecurity;
 import com.uca.security.LogSessionSecurity;
 import spark.Session;
 
@@ -169,7 +170,7 @@ public class StartServer {
         post("/login", (req, res) ->{
             String username = req.queryParams("username");
             String password = req.queryParams("password");
-            if(TeacherCore.checkLogin(username, password)){
+            if(TeacherCore.checkLogin(username, HashPasswordSecurity.getHash(password))){
                 Session session = req.session(true);
                 req.session().attribute("username", username);
                 res.redirect("/index");

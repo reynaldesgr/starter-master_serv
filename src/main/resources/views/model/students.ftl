@@ -6,8 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 
-
-<a href="/index"> Retourner à l'accueil </a>
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des élèves </h1>
