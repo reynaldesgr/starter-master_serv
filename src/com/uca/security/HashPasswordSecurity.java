@@ -10,9 +10,9 @@ import java.util.Base64;
 
 
 public class HashPasswordSecurity {
-    private static final int salt = 32; // Salt
-    private static final int iterations = 6635; // Iterations
-    private static final int keyLength  = 256;  // Desired length fo key
+    private static final int salt       = 32; /* Salt */
+    private static final int iterations = 6635; /* Iterations */
+    private static final int keyLength  = 256; /* Desired length fo key */
 
     /** Get hash **/
     public static String getHash(String password) {
