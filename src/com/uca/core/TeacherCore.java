@@ -23,6 +23,9 @@ public class TeacherCore {
     /** Check if a username corresponds to a password in the database **/
     public static boolean checkLogin(String username, String password) throws Exception {
         TeacherEntity t = getTeacherByUsername(username);
-        return HashPasswordSecurity.check(password, t.getPassword());
+        if(t != null){
+            return HashPasswordSecurity.check(password, t.getPassword());
+        }
+        return false;
     }
 }
