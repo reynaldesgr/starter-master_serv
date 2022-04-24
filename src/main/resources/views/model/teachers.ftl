@@ -9,15 +9,26 @@
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des professeurs </h1>
-        <ul>
-            <#list teachers as teacher>
-                <#assign teacherId=teacher.id_teacher/>
-                <#if teacherId!=0 >
-                    <li>${teacher.id_teacher} - ${teacher.lastName} ${teacher.firstName}<br/>
-                        [<strong> username </strong>] : ${teacher.userName}</li>
-                </#if>
-            </#list>
-        </ul>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list teachers as teacher>
+                    <tr>
+                        <td>${teacher.id_teacher}</td>
+                        <td>${teacher.firstName}</td>
+                        <td>${teacher.lastName}</td>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
         <br/>
         <a href="/index"> Retourner à l'accueil </a>
     </main>

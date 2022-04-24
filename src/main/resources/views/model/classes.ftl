@@ -9,17 +9,28 @@
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des classes </h1>
-        <ul>
-            <#list classes as class>
-                <li>${class.idClass} - ${class.classname} <br/>
-                    <#assign classId=class.idClass/>
-                    <strong> Professeur </strong> : ${class.teacher.lastName} ${class.teacher.firstName}<br/>
-                    <#if userlog?? && classId!=0 >
-                        <a href="delete-class/${class.idClass}"> Supprimer </a>
-                    </#if>
-                </li>
-            </#list>
-        </ul>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Professeur</th>
+                    <#if userlog??><th>Suppression</th></#if>
+                </tr>
+                </thead>
+                <tbody>
+                <#list classes as class>
+                    <tr>
+                        <td>${class.idClass}</td>
+                        <td>${class.classname}</td>
+                        <td>${class.teacher.lastName} ${class.teacher.firstName}</td>
+                        <#if userlog??><td><a href="delete-class/${class.idClass}"> Supprimer </a></td></#if>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
         <#if userlog??>
             <section>
                 <h2> Ajouter une classe </h2>
@@ -31,10 +42,7 @@
                     <br><br>
                     <SELECT name = "classTeacher" size = "1">
                         <#list teachers as teacher>
-                            <#assign teacherId=teacher.id_teacher/>
-                            <#if teacherId!=0 >
                                 <OPTION value="${teacher.id_teacher}"> ${teacher.lastName} - ${teacher.firstName}
-                            </#if>
                         </#list>
                     </SELECT>
                     <br><br>
@@ -49,10 +57,7 @@
                     <label for="classId"> Classe à modifier: </label>
                     <SELECT name = "classId" id="classId" size = "1">
                         <#list classes as class>
-                        <#assign classId=class.idClass/>
-                        <#if classId!=0 >
                         <OPTION value="${class.idClass}"> ${class.classname}
-                            </#if>
                             </#list>
                     </SELECT>
                     <label for="new_classname"> Nouveau nom:</label>
@@ -60,10 +65,7 @@
                     <label for="new_classTeacher"> Nouveau professeur:</label>
                     <SELECT name = "classTeacher" id="new_classTeacher" size = "1">
                         <#list teachers as teacher>
-                        <#assign teacherId=teacher.id_teacher/>
-                        <#if teacherId!=0 >
                         <OPTION value="${teacher.id_teacher}"> ${teacher.lastName} - ${teacher.firstName}
-                            </#if>
                             </#list>
                     </SELECT>
                     <input type="submit" name="sub_class" id="sub_class" value="Confirmer">

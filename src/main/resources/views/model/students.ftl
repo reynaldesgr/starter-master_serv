@@ -9,16 +9,32 @@
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des élèves </h1>
-        <ul>
-            <#list students as student>
-                <li>${student.id_student} - ${student.firstName} ${student.lastName} <br/>
-                    <strong> Classe </strong> : ${student.classEntity.classname}<br/>
-                    <strong> Professeur </strong> : ${student.classEntity.teacher.lastName} ${student.classEntity.teacher.firstName}
-                    <#if userlog??> <a href="delete-student/${student.id_student}"> Supprimer </a> </#if>
-                    <br/><br/>
-                </li>
-            </#list>
-        </ul>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Classe</th>
+                    <th>Professeur</th>
+                    <#if userlog??><th>Suppression</th></#if>
+                </tr>
+                </thead>
+                <tbody>
+                <#list students as student>
+                    <tr>
+                        <td>${student.id_student}</td>
+                        <td>${student.firstName}</td>
+                        <td>${student.lastName}</td>
+                        <td>${student.classEntity.classname}</td>
+                        <td>${student.classEntity.teacher.lastName} ${student.classEntity.teacher.firstName}</td>
+                        <#if userlog??><td><a href="delete-student/${student.id_student}"> Supprimer </a></td></#if>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
         <#if userlog??>
             <section>
                 <h2> Ajouter un élève </h2>

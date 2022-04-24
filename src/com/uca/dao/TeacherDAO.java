@@ -17,13 +17,15 @@ public class TeacherDAO extends _Generic<TeacherEntity> {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM teachers ORDER BY id_teacher ASC;");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                TeacherEntity entity = new TeacherEntity();
-                entity.setId_teacher(resultSet.getInt("id_teacher"));
-                entity.setFirstName(resultSet.getString("firstname"));
-                entity.setLastName(resultSet.getString("lastname"));
-                entity.setUserName(resultSet.getString("username"));
-                entity.setPassword(resultSet.getString("password"));
-                entities.add(entity);
+                if (resultSet.getInt("id_teacher") != 0) {
+                    TeacherEntity entity = new TeacherEntity();
+                    entity.setId_teacher(resultSet.getInt("id_teacher"));
+                    entity.setFirstName(resultSet.getString("firstname"));
+                    entity.setLastName(resultSet.getString("lastname"));
+                    entity.setUserName(resultSet.getString("username"));
+                    entity.setPassword(resultSet.getString("password"));
+                    entities.add(entity);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

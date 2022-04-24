@@ -18,12 +18,14 @@ public class ClassDAO extends _Generic<ClassEntity> {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM classroom ORDER BY id_classroom ASC;");
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
-                ClassEntity entity = new ClassEntity();
-                entity.setIdClass(resultSet.getInt("id_classroom"));
-                entity.setClassname(resultSet.getString("classname"));
-                entity.setIdTeacher(resultSet.getInt("id_teacher"));
-                entity.setTeacher(new TeacherDAO().getById(entity.getIdTeacher()));
-                entities.add(entity);
+                if (resultSet.getInt("id_classroom") != 0) {
+                    ClassEntity entity = new ClassEntity();
+                    entity.setIdClass(resultSet.getInt("id_classroom"));
+                    entity.setClassname(resultSet.getString("classname"));
+                    entity.setIdTeacher(resultSet.getInt("id_teacher"));
+                    entity.setTeacher(new TeacherDAO().getById(entity.getIdTeacher()));
+                    entities.add(entity);
+                }
             }
         }catch (SQLException e){
             e.printStackTrace();
