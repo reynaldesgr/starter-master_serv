@@ -9,14 +9,30 @@
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des gommettes </h1>
-        <ul>
-            <#if stickers??>
+        <#if stickers??>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Couleur</th>
+                    <th>Description</th>
+                    <#if userlog??><th>Suppression</th></#if>
+                </tr>
+                </thead>
+                <tbody>
                 <#list stickers as sticker>
-                    <li>${sticker.id_sticker} - ${sticker.color} : ${sticker.description}
-                    <#if userlog??> <a href="/delete-sticker/${sticker.id_sticker}"> Supprimer </a> </#if> </li>
+                    <tr>
+                        <td>${sticker.id_sticker}</td>
+                        <td>${sticker.color}</td>
+                        <td>${sticker.description}</td>
+                        <#if userlog??><td><a href="/delete-sticker/${sticker.id_sticker}"> Supprimer </a></td></#if>
+                    </tr>
                 </#list>
-            </#if>
-        </ul>
+                </tbody>
+            </table>
+        </div>
+        </#if>
 
         <#if userlog??>
             <#if stickers??>

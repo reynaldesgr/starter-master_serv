@@ -118,9 +118,11 @@ public class StartServer {
         /* Delete a sticker  */
         get("delete-student-sticker/:id", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
-                StudentStickerEntity stickers_student_to_remove = StudentStickerCore.getStudentStickersById(Integer.parseInt(req.params(":id")));
+                int id = Integer.parseInt(req.params(":id"));
+                StudentStickerEntity stickers_student_to_remove = StudentStickerCore.getStudentStickersById(id);
                 StudentStickerCore.delete(stickers_student_to_remove);
-                res.redirect("/consult-student-stickers/" + stickers_student_to_remove.getStudent().getId_student());
+                int id_student = stickers_student_to_remove.getStudent().getId_student();
+                return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
                 res.redirect("/index");
             }
