@@ -80,11 +80,12 @@ public class StudentStickerDAO extends _Generic<StudentStickerEntity> {
     @Override
     public StudentStickerEntity getById(int id){
         try{
-            StudentStickerEntity s = new StudentStickerEntity();
             PreparedStatement statement = this.connect.prepareStatement("SELECT * FROM studentsStickers WHERE id = ?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
+                StudentStickerEntity s = new StudentStickerEntity();
+
                 s.setId(resultSet.getInt("id"));
                 s.setId_student(resultSet.getInt("id_student"));
                 s.setId_teacher(resultSet.getInt("id_teacher"));
@@ -100,12 +101,13 @@ public class StudentStickerDAO extends _Generic<StudentStickerEntity> {
                 s.setTeacher_lastname(s.getTeacher().getLastName());
                 s.setStudent_lastname(s.getStudent().getLastName());
                 s.setColor_sticker(StickerEntity.COLOR.valueOf(s.getSticker().getColor()));
+
+                return s;
             }
-            return s;
         }catch (SQLException e){
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
     /** Return the list of stickers of student (id) **/

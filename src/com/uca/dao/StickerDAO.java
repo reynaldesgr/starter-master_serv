@@ -81,21 +81,23 @@ public class StickerDAO extends _Generic<StickerEntity> {
     @Override
     public StickerEntity getById(int id){
         try{
-            StickerEntity s = new StickerEntity();
             PreparedStatement statement = this.connect.prepareStatement("SELECT * FROM stickers WHERE id_sticker = ?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
+                StickerEntity s = new StickerEntity();
+
                 s.setId_sticker(resultSet.getInt("id_sticker"));
                 s.setDescription(resultSet.getString("description"));
                 s.setColor(StickerEntity.COLOR.valueOf(resultSet.getString("color")));
+
+                return s;
             }
-            return s;
         }catch (SQLException e){
             e.printStackTrace();
-            return null;
         }
-    }
+        return null;
+   }
     public void updateSticker(int id, String color, String description){
         try{
             PreparedStatement statement = this.connect.prepareStatement("UPDATE stickers SET color = ?, description = ? WHERE id_sticker = ?");

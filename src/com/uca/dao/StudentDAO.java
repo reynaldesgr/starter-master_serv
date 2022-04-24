@@ -87,22 +87,24 @@ public class StudentDAO extends _Generic<StudentEntity> {
     @Override
     public StudentEntity getById(int id){
         try{
-            StudentEntity s = new StudentEntity();
             PreparedStatement statement = this.connect.prepareStatement("SELECT * FROM students WHERE id_student = ?");
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){
+                StudentEntity s = new StudentEntity();
+
                 s.setId_student(resultSet.getInt("id_student"));
                 s.setFirstName(resultSet.getString("firstname"));
                 s.setLastName(resultSet.getString("lastname"));
                 s.setId_classroom(resultSet.getInt("id_classroom"));
                 s.setClassEntity(ClassCore.getClassById(s.getId_classroom()));
+
+                return s;
             }
-            return s;
         }catch (SQLException e){
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
 
