@@ -116,12 +116,14 @@ public class StartServer {
         });
 
         /* Delete a sticker  */
-        get("delete-student-sticker/:id", (req, res) ->{
+        get("delete-student-sticker/:id_student/:id", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 int id = Integer.parseInt(req.params(":id"));
+                int id_student = Integer.parseInt(req.params(":id_student"));
                 StudentStickerEntity stickers_student_to_remove = StudentStickerCore.getStudentStickersById(id);
-                StudentStickerCore.delete(stickers_student_to_remove);
-                int id_student = stickers_student_to_remove.getStudent().getId_student();
+                if(stickers_student_to_remove != null){
+                    StudentStickerCore.delete(stickers_student_to_remove);
+                }
                 return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
                 res.redirect("/index");
@@ -133,7 +135,9 @@ public class StartServer {
         get("delete-sticker/:id", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 StickerEntity sticker_to_remove = StickerCore.getStickerById(Integer.parseInt(req.params(":id")));
-                StickerCore.deleteSticker(sticker_to_remove);
+                if(sticker_to_remove != null){
+                    StickerCore.deleteSticker(sticker_to_remove);
+                }
                 res.redirect("/stickers");
             }else{
                 res.redirect("/index");
@@ -145,7 +149,9 @@ public class StartServer {
         get("delete-student/:id", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 StudentEntity student_to_remove = StudentCore.getStudentById(Integer.parseInt(req.params(":id")));
-                StudentCore.deleteStudent(student_to_remove);
+                if(student_to_remove != null){
+                    StudentCore.deleteStudent(student_to_remove);
+                }
                 res.redirect("/students");
             }else{
                 res.redirect("/index");
@@ -157,7 +163,9 @@ public class StartServer {
         get("delete-class/:id", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 ClassEntity class_to_remove = ClassCore.getClassById(Integer.parseInt(req.params(":id")));
-                ClassCore.delete(class_to_remove);
+                if(class_to_remove != null){
+                    ClassCore.delete(class_to_remove);
+                }
                 res.redirect("/classes");
             }else{
                 res.redirect("/index");
@@ -202,6 +210,7 @@ public class StartServer {
         post("/consult-student-stickers", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 int id_student = Integer.parseInt(req.queryParams("student_name").split(" ")[0]);
+                // res.redirect("consult-student-stickers/" + id_student);
                 return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
                 res.redirect("/index");
