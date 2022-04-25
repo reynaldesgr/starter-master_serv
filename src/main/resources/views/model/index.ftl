@@ -2,7 +2,7 @@
 
 <html lang="fr">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <title> Bienvenue </title>
 </head>
 

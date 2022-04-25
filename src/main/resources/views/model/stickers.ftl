@@ -3,7 +3,7 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 </head>
 
 <body xmlns="http://www.w3.org/1999/html">
