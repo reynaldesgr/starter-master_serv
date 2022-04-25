@@ -1,4 +1,5 @@
 package com.uca.gui;
+import com.uca.core.StudentCore;
 
 
 import freemarker.template.Configuration;
@@ -21,7 +22,10 @@ public class IndexGUI {
         if(!req.session().attributes().isEmpty()){
             input.put("user_log", req.session().attribute("username").toString());
         }
+
         input.put("index_title", "Bienvenue");
+        input.put("students", StudentCore.getAllStudents());
+
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("model/index.ftl");
         template.setOutputEncoding("UTF-8");

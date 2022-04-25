@@ -4,7 +4,7 @@
 
 <#macro footer>
     <footer>
-        <p>P. BOUTERIGE, Y. ROCHE - 2022</p>
+        <p>R. SEGERIE, P. BOUTERIGE, Y. ROCHE - 2022</p>
     </footer>
 </#macro>
 

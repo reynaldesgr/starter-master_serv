@@ -14,6 +14,7 @@
                 <li> ${student_sticker.id} - <i> N° de gommette: ${student_sticker.id_sticker} </i> -
                 ${student_sticker.color_sticker} -  <i> N° élève: ${student_sticker.id_student} </i> -
                  ${student_sticker.student_firstname} ${student_sticker.student_lastname}
+                <br/> <strong> Description </strong> : ${student_sticker.sticker.description}
                 <br/> <strong> Par </strong> : ${student_sticker.teacher_firstname} ${student_sticker.teacher_lastname}
                 <br/> <strong> Attribué le </strong> : ${student_sticker.date_sticker} <br/>
                 <strong> Raison </strong> : ${student_sticker.reason}  </li>

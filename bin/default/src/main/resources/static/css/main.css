@@ -18,16 +18,19 @@ body {
 }
 
 main {
-    display: block;
+    position: absolute;
     width: 60%;
     padding: 10px 20px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border: darkred dashed 2px;
+    margin: 0;
+    background: rgba(250, 250, 250, 0.85);
+    border: rgb(0, 0, 0) solid 3px;
     border-radius: 15px;
-    background-image: url("../img/woof.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 nav {
@@ -44,4 +47,31 @@ a {
 a:visited {
     color: #a0a0e5;
     font-weight: bolder;
+}
+
+h1{
+    border: rgb(0, 0, 0) solid 3px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(220, 220, 220, 0.9);
+    box-shadow: 3px 3px 5px rgb(81, 81, 81);
+}
+
+h2{
+    text-decoration: underline overline #000000;
+    text-align: center;
+}
+
+.login{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    background: rgba(220, 220, 220, 0.9);
+    box-shadow: 3px 3px 5px rgb(81, 81, 81);
+    border: rgb(0, 0, 0) solid 2px;
+    border-radius: 20px;
+    left : 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    text-align: center;
 }

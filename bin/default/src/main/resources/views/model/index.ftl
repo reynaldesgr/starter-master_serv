@@ -2,8 +2,8 @@
 
 <html lang="fr">
 <head>
-    <title> Bienvenue </title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <title> Bienvenue </title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <br/>
             <a href="/put-students"> Modifier/Ajouter un élève </a><br/>
             <a href="/put-stickers"> Mettre des gommettes </a><br/><br/>
-            <a href="/put-classes"> Gestion de classes </a><br/><br/>
+            <a href="/put-classes"> Gestion des classes </a><br/><br/>
             <a href="/disconnect"> Se déconnecter </a>
         <#else>
             <a href="/login"> Se connecter </a>

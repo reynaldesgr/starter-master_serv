@@ -6,8 +6,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 
-
-<a href="/index"> Retourner à l'accueil </a>
 <body xmlns="http://www.w3.org/1999/html">
     <main>
         <h1> Liste des élèves </h1>
@@ -15,8 +13,9 @@
             <#list students as student>
                 <li>${student.id_student} - ${student.firstName} ${student.lastName} <br/>
                     <strong> Classe </strong> : ${student.classEntity.classname}<br/>
-                    <strong> Professeur </strong> : ${student.classEntity.teacher.lastName} ${student.classEntity.teacher.firstName}<br/>
+                    <strong> Professeur </strong> : ${student.classEntity.teacher.lastName} ${student.classEntity.teacher.firstName}
                     <#if userlog??> <a href="delete-student/${student.id_student}"> Supprimer </a> </#if>
+                    <br/><br/>
                 </li>
             </#list>
         </ul>

@@ -137,3 +137,60 @@ td {
         }
     }
 }
+
+.row{
+    display: flex;
+    padding-top: 50px;
+}
+
+.column{
+    flex: 50%;
+    line-height: 1.5cm;
+    text-align : center;
+}
+
+.index_link{
+    display: inline-block;
+    background: rgba(220, 220, 220, 0.9);
+    box-shadow: 8px 8px 0px rgba(61, 59, 130, 0.5);
+    border: rgb(0, 0, 0) solid 2px;
+    border-radius: 5px;
+    text-align: center;
+    width: 60%;
+    padding: 13px;
+    margin-bottom: 1.5cm;
+}
+
+input{
+    height: fit-content;
+    width: fit-content;
+}
+
+.index_link:hover{
+    transform: translate(3px,4px);
+    -webkit-transform: translate(3px,4px);
+    box-shadow: 5px 4px 0px rgba(61, 59, 130, 0.5);
+    cursor:  pointer;
+}
+
+#login_link{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    box-shadow: none;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
+#putsticker_index{
+    text-align: center;
+}
