@@ -1,12 +1,17 @@
 <#ftl encoding="utf-8">
+<#import "common/nav.ftl" as navbar>
+<#import "common/footer.ftl" as footer>
 
 <html lang="fr">
 <head>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <@navbar.navbar_css/>
+    <@footer.footer_css/>
     <title> Bienvenue </title>
 </head>
 
 <body>
+<@navbar.navbar/>
     <main>
         <h1> Accueil </h1>
         <h2>${index_title}</h2>
@@ -27,5 +32,7 @@
             <a href="/login"> Se connecter </a>
         </#if>
     </main>
+<@footer.footer/>
+<@navbar.navbar_js/>
 </body>
 </html>
