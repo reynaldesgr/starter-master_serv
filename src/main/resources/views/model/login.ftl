@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<@navbar.navbar/>
+<@navbar.navbar user_log??/>
     <main>
         <h2>${login_title}</h2><br>
         <div class="login">
@@ -21,19 +21,15 @@
                         Nom d'utilisateur
                     </b>
                 </label>
-                <input type="text" name="username" id="username" placeholder="Nom d'utilisateur">
-                <br><br>
+                <input type="text" name="username" id="username" required placeholder="Nom d'utilisateur">
                 <label for="password">
                     <b>
                         Mot de passe
                     </b>
                 </label>
                 <input type="password" name="password" id="password" required placeholder="Mot de passe">
-                <br><br>
-                <input type="submit" name="log" id="log" value="Connexion">
-                <br><br>
+                <input type="submit" class="button center-button" name="log" id="log" value="Connexion">
             </form>
-
         </div>
     </main>
 <@footer.footer/>

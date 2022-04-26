@@ -2,7 +2,7 @@
     <link rel="stylesheet" type="text/css" href="/css/navbar.css"/>
 </#macro>
 
-<#macro navbar>
+<#macro navbar user_log>
     <div id="root">
         <div id="topnav" class="topnav">
             <a id="home_link" class="topnav_link" href="/">Accueil</a>
@@ -13,13 +13,18 @@
                 <a class="topnav_link" href="/teachers">Professeurs</a>
                 <a class="topnav_link" href="/stickers">Gommettes</a>
                 <a class="topnav_link" href="/students-stickers">Historique</a>
-                <#if user_log??>
-                    <a class="topnav_link" href="/put-students">Gestion des élèves</a>
-                    <a class="topnav_link" href="/put-stickers">Gestion des gommettes</a>
-                    <a class="topnav_link" href="/put-classes"> Gestion des classes</a>
+                <#if user_log>
+                <div class="dropdown">
+                    <a class="topnav_link" href="/students-stickers">Gestion</a>
+                    <div class="dropdown-content">
+                        <a class="topnav_link" href="/put-students">Gestion des élèves</a>
+                        <a class="topnav_link" href="/put-stickers">Gestion des gommettes</a>
+                        <a class="topnav_link" href="/put-classes"> Gestion des classes</a>
+                    </div>
+                </div>
                     <a class="topnav_link" href="/disconnect">Déconnection</a>
                 <#else>
-                    <a class="topnav_link" href="/login"> Se connecter </a>
+                    <a class="topnav_link" href="/login">Connection</a>
                 </#if>
             </nav>
 
@@ -37,7 +42,7 @@
                     <li><a href="/teachers" class="topnav_responsive_menu_a">Professeurs</a></li>
                     <li><a href="/stickers" class="topnav_responsive_menu_a">Gommettes</a></li>
                     <li><a href="/students-stickers" class="topnav_responsive_menu_a">Historique</a></li>
-                    <#if user_log??>
+                    <#if user_log>
                         <li><a class="topnav_responsive_menu_a" href="/put-students">Gestion des élèves</a></li>
                         <li><a class="topnav_responsive_menu_a" href="/put-stickers">Gestion des gommettes</a></li>
                         <li><a class="topnav_responsive_menu_a" href="/put-classes"> Gestion des classes</a></li>

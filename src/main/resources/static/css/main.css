@@ -18,12 +18,13 @@ body {
 }
 
 main {
-    display: block;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
     order: 2;
     width: 60%;
-    margin: auto;
+    margin: 2em auto auto;
     padding: 10px 20px;
-    min-height: 90%;
     border: rgb(0, 0, 0) solid 3px;
     border-radius: 15px;
     background: rgba(250, 250, 250, 0.85);
@@ -51,18 +52,23 @@ h2 {
     text-align: center;
 }
 
+/*================ Login =================*/
+
 .login {
-    position: relative;
-    display: inline-block;
-    width: auto;
+    width: max-content;
+    margin: auto;
     background: rgba(220, 220, 220, 0.9);
     box-shadow: 3px 3px 5px rgb(81, 81, 81);
     border: rgb(0, 0, 0) solid 2px;
     border-radius: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     padding: 10px 20px;
-    text-align: center;
+    text-align: left;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
 }
 
 
@@ -138,27 +144,52 @@ td {
     }
 }
 
-.row{
-    display: flex;
-    padding-top: 50px;
-}
-
-.column{
-    flex: 50%;
-    line-height: 1.5cm;
-    text-align : center;
-}
-
-.index_link{
+/* ******************** Button ******************** */
+.button{
     display: inline-block;
     background: rgba(220, 220, 220, 0.9);
-    box-shadow: 8px 8px 0px rgba(61, 59, 130, 0.5);
+    box-shadow: 3px 3px 5px rgb(81, 81, 81);
     border: rgb(0, 0, 0) solid 2px;
     border-radius: 5px;
     text-align: center;
     width: 60%;
     padding: 13px;
-    margin-bottom: 1.5cm;
+}
+
+.button:hover{
+    background-color: rgb(235, 235, 235);
+    transition: background-color ease-in-out 0.5s;
+    cursor:  pointer;
+}
+
+.button:active{
+    transform: translate(1px,2px);
+    box-shadow: 1px 1px 5px rgb(81, 81, 81);
+    cursor:  pointer;
+}
+
+.center-button {
+    margin: 0 auto;
+}
+
+a.button {
+    text-decoration: none;
+    color: initial;
+}
+
+/*================ Index =================*/
+
+.row{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.column{
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    text-align : center;
 }
 
 input{
@@ -166,29 +197,9 @@ input{
     width: fit-content;
 }
 
-.index_link:hover{
-    transform: translate(3px,4px);
-    -webkit-transform: translate(3px,4px);
-    box-shadow: 5px 4px 0px rgba(61, 59, 130, 0.5);
-    cursor:  pointer;
-}
-
 #login_link{
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
     width: 20%;
     box-shadow: none;
-}
-
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: initial;
 }
 
 #putsticker_index{

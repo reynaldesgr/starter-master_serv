@@ -11,7 +11,7 @@
 </head>
 
 <body xmlns="http://www.w3.org/1999/html">
-<@navbar.navbar/>
+<@navbar.navbar user_log??/>
     <main>
         <h1> Liste des professeurs </h1>
         <div class="table-container">

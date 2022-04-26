@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<@navbar.navbar/>
+<@navbar.navbar user_log??/>
     <main>
         <h1> Accueil </h1>
         <h2>${index_title}</h2>
@@ -19,48 +19,45 @@
             <p> Vous êtes connecté en tant que <strong> ${user_log} </strong> </p>
         </#if>
         <div class="row">
-        
+
             <div class="column">
-
-                <button onclick="location.href='/students'" type="button" class = "index_link">Consulter les élèves</button>
-
-                <button onclick="location.href='/teachers'" type="button" class = "index_link">Consulter les professeurs</button>
-
-                <#if user_log??>
-                    <button onclick="location.href='/put-students'" type="button" class = "index_link">Modifier/Ajouter un élève</button>
-
-                    <button onclick="location.href='/put-stickers'" type="button" class = "index_link">Mettre des gommettes</button>
-                </#if>
+                <a href="/students" class = "button">Consulter les élèves</a>
+                <a href="/teachers" class = "button">Consulter les professeurs</a>
             </div>
-            
+
+            <#if user_log??>
+                <div class="column">
+                    <a href="/put-students" class = "button">Modifier/Ajouter un élève</a>
+                    <a href="/put-stickers" class = "button">Mettre des gommettes</a>
+                </div>
+            </#if>
+
             <div class="column">
-
-                <button onclick="location.href='/stickers'" type="button" class = "index_link">Liste des gommettes</button>
-
-                <button onclick="location.href='/students-stickers'" type="button" class = "index_link">Historique des gommettes</button>
-                
-
-                <#if user_log??>
-                    <button onclick="location.href='/put-classes'" type="button" class = "index_link">Gestion des classes</button>
-                    
-                    <button onclick="location.href='/disconnect'" type="button" class = "index_link">Se déconnecter</button>
-                </#if>
+                <a href="/stickers" class = "button">Liste des gommettes</a>
+                <a href="/students-stickers" class = "button">Historique des gommettes</a>
             </div>
-    
-        </div>
-        <#if user_log??>
-            <h2> Consulter les gommettes d'un élève </h2>
+
+            <#if user_log??>
+                <div class="column">
+                    <a href="/put-classes" class = "button">Gestion des classes</a>
+                    <a href="/disconnect" class = "button">Se déconnecter</a>
+                </div>
+
+                <h2> Consulter les gommettes d'un élève </h2>
                 <form id="putsticker_index" method="post" action="/consult-student-stickers">
                     <SELECT name = "student_name" size="1">
                         <#list students as student>
-                            <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
-                        </#list>
+                        <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
+                            </#list>
                     </SELECT>
-                        <input type="submit" name="sub_consult" id="sub_consult" value="Confirmer">
+                    <input type="submit" name="sub_consult" id="sub_consult" value="Confirmer">
                 </form>
-        <#else>
-            <button onclick="location.href='/login'" type="button" class = "index_link" id = "login_link">Se connecter</button>
-        </#if>
+            <#else>
+                <div class="column">
+                    <a href="/login" class = "button center-button">Se connecter</a>
+                </div>
+            </#if>
+        </div>
     </main>
 <@footer.footer/>
 <@navbar.navbar_js/>

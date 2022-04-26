@@ -20,10 +20,13 @@ import java.util.Map;
 import spark.Request;
 
 public class HistoryStudentStickerGUI {
-    public static String getAllHistoryStudentsStickers() throws IOException, TemplateException {
+    public static String getAllHistoryStudentsStickers(Request req) throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
+        if(!req.session().attributes().isEmpty()){
+            input.put("user_log", req.session().attribute("username").toString());
+        }
         input.put("student_stickers", StudentStickerCore.getAllStudentsStickers());
 
         Writer output = new StringWriter();

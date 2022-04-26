@@ -5,6 +5,7 @@ import com.uca.core.TeacherCore;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import spark.Request;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -13,10 +14,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TeacherGUI {
-    public static String getAllTeachers() throws IOException, TemplateException {
+    public static String getAllTeachers(Request req) throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
+        if(!req.session().attributes().isEmpty()){
+            input.put("user_log", req.session().attribute("username").toString());
+        }
 
         input.put("teachers", TeacherCore.getAllTeachers());
 

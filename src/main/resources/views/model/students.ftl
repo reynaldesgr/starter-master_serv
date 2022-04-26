@@ -11,7 +11,7 @@
 </head>
 
 <body xmlns="http://www.w3.org/1999/html">
-<@navbar.navbar/>
+<@navbar.navbar userlog??/>
     <main>
         <h1> Liste des élèves </h1>
         <div class="table-container">

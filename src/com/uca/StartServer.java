@@ -7,9 +7,7 @@ import com.uca.entity.StickerEntity;
 import com.uca.entity.StudentEntity;
 import com.uca.entity.StudentStickerEntity;
 import com.uca.gui.*;
-import com.uca.security.HashPasswordSecurity;
 import com.uca.security.LogSessionSecurity;
-import spark.Session;
 
 import static spark.Spark.*;
 
@@ -23,7 +21,6 @@ public class StartServer {
         _Initializer.Init();
 
         //Defining our routes
-        /** -- GET -- **/
 
         get("/", (req, res) -> {
             res.redirect("/index");
@@ -31,39 +28,25 @@ public class StartServer {
         });
 
         /* Students */
-        get("/students", (req, res) -> {
-            return StudentGUI.getAllStudents(req);
-        });
+        get("/students", (req, res) -> StudentGUI.getAllStudents(req));
 
         /* Classes */
-        get("/classes", (req, res) -> {
-            return ClassesGUI.getAllClasses(req);
-        });
+        get("/classes", (req, res) -> ClassesGUI.getAllClasses(req));
 
         /* Teachers */
-        get("/teachers", (req, res) ->{
-            return TeacherGUI.getAllTeachers();
-        });
+        get("/teachers", (req, res) -> TeacherGUI.getAllTeachers(req));
 
         /* Stickers */
-        get("/stickers", (req, res) ->{
-            return StickerGUI.getAllStickers(req);
-        });
+        get("/stickers", (req, res) -> StickerGUI.getAllStickers(req));
 
         /* Students that received stickers */
-        get("/students-stickers", (req, res) ->{
-            return HistoryStudentStickerGUI.getAllHistoryStudentsStickers();
-        });
+        get("/students-stickers", (req, res) -> HistoryStudentStickerGUI.getAllHistoryStudentsStickers(req));
 
         /* Index */
-        get("/index", (req, res) ->{
-            return IndexGUI.getModelIndex(req);
-        });
+        get("/index", (req, res) -> IndexGUI.getModelIndex(req));
 
         /* Login */
-        get("/login", (req, res) ->{
-            return LoginGUI.getModelLogin();
-        });
+        get("/login", (req, res) -> LoginGUI.getModelLogin());
 
         /* Add/Remove/Modify stickers from students */
         get("/put-stickers", (req, res) ->{
@@ -174,14 +157,12 @@ public class StartServer {
         });
 
 
-        /** -- POST -- **/
-
         /* Login */
         post("/login", (req, res) ->{
             String username = req.queryParams("username");
             String password = req.queryParams("password");
             if(TeacherCore.checkLogin(username, password)){
-                Session session = req.session(true);
+                req.session(true);
                 req.session().attribute("username", username);
                 res.redirect("/index");
             }else{
@@ -195,7 +176,7 @@ public class StartServer {
             if(LogSessionSecurity.getSessionUser(req) != null){
                 StudentStickerCore.createStudentSticker(
                         Integer.parseInt(req.queryParams("name").split(" ")[0]) ,
-                        TeacherCore.getTeacherByUsername(LogSessionSecurity.getSessionUser(req).toString()).getId_teacher(),
+                        TeacherCore.getTeacherByUsername(LogSessionSecurity.getSessionUser(req)).getId_teacher(),
                         Integer.parseInt(req.queryParams("color").split(" ")[0]) ,
                         req.queryParams("reason") );
 
@@ -287,7 +268,7 @@ public class StartServer {
            if(LogSessionSecurity.getSessionUser(req) != null){
                String color = String.valueOf(StickerEntity.COLOR.valueOf(req.queryParams("color")));
                String description = req.queryParams("description");
-               StickerEntity s = StickerCore.createSticker(color, description);
+               StickerCore.createSticker(color, description);
                res.redirect("/stickers");
            }else{
                res.redirect("/index");
