@@ -45,7 +45,8 @@
 
                 <h2> Consulter les gommettes d'un élève </h2>
                 <form id="putsticker_index" method="post" action="/consult-student-stickers">
-                    <SELECT name = "student_name" size="1">
+                    <label for="student_name">Nom </label>
+                    <SELECT name = "student_name" id="student_name" size="1">
                         <#list students as student>
                         <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
                             </#list>

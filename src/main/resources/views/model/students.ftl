@@ -5,6 +5,7 @@
 <html lang="fr">
 
 <head>
+    <title>Elèves</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <@navbar.navbar_css/>
     <@footer.footer_css/>
@@ -45,17 +46,17 @@
                 <h2> Ajouter un élève </h2>
                 <p> Précisez le nom, le prénom et la classe du nouvel élève. </p>
                 <form id="addstudent" method="post" action="/add-student">
-                    <label><b>Nom</b>
+                    <label for="lastname"><b>Nom</b>
                     </label>
                     <input type="text" name="lastname" id="lastname" placeholder="Nom">
                     <br><br>
-                    <label><b>Prénom</b>
+                    <label for="firstname"><b>Prénom</b>
                     </label>
                     <input type="text" name="firstname" id="firstname" placeholder="Prénom">
                     <br><br>
-                    <label><b>Classe</b>
+                    <label for="studentclass"><b>Classe</b>
                     </label>
-                    <SELECT name = "studentclass" size = "1">
+                    <SELECT name = "studentclass" id="studentclass" size = "1">
                         <#list classes as class>
                         <OPTION value="${class.idClass}"> ${class.idClass} - ${class.classname}
                             </#list>
@@ -69,7 +70,8 @@
                 <h2> Modifier un élève </h2>
                     <p> Précisez l'élève et la nouvelle classe attribuée à cet élève. </p>
                     <form id = "studentclass" method="post" action="/update-student">
-                    <SELECT name = "name" size = "1">
+                        <label for="name">Elève</label>
+                    <SELECT name = "name" id="name" size = "1">
                         <#list students as student>
                             <OPTION value="${student.id_student}"> ${student.id_student} - ${student.firstName} ${student.lastName}
                         </#list>

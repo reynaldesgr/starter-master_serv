@@ -5,13 +5,14 @@
 <html lang="fr">
 
 <head>
+    <title>Gommettes d'élève</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <@navbar.navbar_css/>
     <@footer.footer_css/>
 </head>
 
 <body xmlns="http://www.w3.org/1999/html">
-<@navbar.navbar user_log??/>
+<@navbar.navbar userlog??/>
     <main>
         <h1> Gommettes de ${student.firstName} ${student.lastName} </h1>
         <ul>
@@ -24,7 +25,6 @@
                     <strong> Raison </strong> : ${student_sticker.reason}
                     <a href="/delete-student-sticker/${student_sticker.id_student}/${student_sticker.id}"> Supprimer </a>
                 </li>
-                <br/><br/>
             </#list>
         </ul>
         <a href="/index"> Retourner à l'accueil </a>

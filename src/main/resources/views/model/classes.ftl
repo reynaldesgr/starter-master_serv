@@ -5,6 +5,7 @@
 <html lang="fr">
 
 <head>
+    <title>Classes</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <@navbar.navbar_css/>
     <@footer.footer_css/>

@@ -5,6 +5,7 @@
 <html lang="fr">
 
 <head>
+    <title>Gommettes attribuées</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <@navbar.navbar_css/>
     <@footer.footer_css/>

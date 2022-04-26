@@ -5,6 +5,7 @@
 <html lang="fr">
 
 <head>
+    <title>Gommettes d'élève</title>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <@navbar.navbar_css/>
     <@footer.footer_css/>
@@ -44,12 +45,14 @@
             <section>
                 <h2> Mettre une gomette </h2>
                 <form id="putsticker" method="post" action="/put-stickers">
-                    <SELECT name = "name" size = "1">
+                    <label for="student">Elève</label>
+                    <SELECT name = "name" id="student" size = "1">
                     <#list students as student>
                             <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
                     </#list>
                     </SELECT>
-                    <SELECT name = "color" size = "1">
+                    <label for="color">Couleur</label>
+                    <SELECT name = "color" id="color" size = "1">
                     <#list id_stickers as sticker>
                         <OPTION> ${sticker.id_sticker} - ${sticker.color} - ${sticker.description}
                     </#list>
@@ -62,7 +65,8 @@
                 <section>
                     <h2> Consulter les gommettes d'un élève </h2>
                 <form id="putsticker" method="post" action="/consult-student-stickers">
-                    <SELECT name = "student_name" size="1">
+                    <label for="student2">Elève</label>
+                    <SELECT name = "student_name" id="student2" size="1">
                         <#list students as student>
                             <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
                         </#list>
