@@ -22,9 +22,9 @@
                         <a class="topnav_link" href="/put-classes"> Gestion des classes</a>
                     </div>
                 </div>
-                    <a class="topnav_link" href="/disconnect">Déconnection</a>
+                    <a class="topnav_link" href="/disconnect">Déconnexion</a>
                 <#else>
-                    <a class="topnav_link" href="/login">Connection</a>
+                    <a class="topnav_link" href="/login">Connexion</a>
                 </#if>
             </nav>
 
