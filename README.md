@@ -53,6 +53,6 @@ N.B. : MDP des professeurs :
 
 ```/delete-sticker/id```: enlever un sticker.
 
-```/add-classroom```: ajouter une classe
+```/add-classroom```: ajouter une classe.
 
-```/update-classes```: mettre à jour une classe
+```/update-classes```: mettre à jour une classe.
