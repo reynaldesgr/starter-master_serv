@@ -55,4 +55,4 @@ N.B. : MDP des professeurs :
 
 ```/add-classroom```: ajouter une classe
 
-```/update-classes``` : mettre à jour une classe
+```/update-classes```: mettre à jour une classe
