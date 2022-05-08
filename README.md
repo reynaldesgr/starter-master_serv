@@ -45,10 +45,14 @@ N.B. : MDP des professeurs :
 
 ```/delete-student/id```: enlever un élève.
 
-```delete-student-sticker/id```: enlever un élève dans l'historique des stickers.
+```delete-student-sticker/id_student/id```: enlever un élève dans l'historique des stickers.
 
 ```/modify-stickers```: modifier un sticker existant.
 
 ```/add-sticker```: ajouter un nouveau sticker.
 
 ```/delete-sticker/id```: enlever un sticker.
+
+```/add-classroom```: ajouter une classe.
+
+```/update-classes```: mettre à jour une classe.
