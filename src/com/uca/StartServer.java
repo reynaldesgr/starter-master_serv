@@ -199,6 +199,7 @@ public class StartServer {
             return null;
         });
 
+        /* Update a student */
         post("/update-student", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 int id_student = Integer.parseInt(req.queryParams("name"));
@@ -211,6 +212,7 @@ public class StartServer {
             return null;
         });
 
+        /* Update a classroom */
         post("/update-classes", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 int id_class = Integer.parseInt(req.queryParams("classId"));
@@ -224,6 +226,7 @@ public class StartServer {
             return null;
         });
 
+        /* Adding a student */
         post("/add-student", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 String firstname = req.queryParams("firstname");
@@ -237,6 +240,7 @@ public class StartServer {
             return null;
         });
 
+        /* Adding a classroom */
         post("/add-classroom", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 String classname = req.queryParams("classname");
