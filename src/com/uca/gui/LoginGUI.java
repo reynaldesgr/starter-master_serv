@@ -13,10 +13,12 @@ import java.util.Map;
 
 public class LoginGUI {
     /** Return the model view of /login **/
-    public static String getModelLogin() throws IOException, TemplateException {
+    public static String getModelLogin(Request req) throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
+        String dest = req.queryParams("ref");
+        input.put("ref", dest);
 
         input.put("login_title", "Se connecter");
         Writer output = new StringWriter();

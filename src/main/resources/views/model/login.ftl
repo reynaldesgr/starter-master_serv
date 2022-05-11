@@ -29,6 +29,7 @@
                 </label>
                 <input type="password" name="password" id="password" required placeholder="Mot de passe">
                 <input type="submit" class="button center-button" name="log" id="log" value="Connexion">
+                <input type="hidden" name="ref" value=${ref}>
             </form>
         </div>
     </main>

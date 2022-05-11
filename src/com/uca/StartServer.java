@@ -46,14 +46,17 @@ public class StartServer {
         get("/index", (req, res) -> IndexGUI.getModelIndex(req));
 
         /* Login */
-        get("/login", (req, res) -> LoginGUI.getModelLogin());
+        get("/login", (req, res) -> {
+            return LoginGUI.getModelLogin(req);
+        });
 
         /* Add/Remove/Modify stickers from students */
         get("/put-stickers", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null) {
                 return StudentStickerGUI.getAllStudentsStickers(req);
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -63,7 +66,8 @@ public class StartServer {
             if(LogSessionSecurity.getSessionUser(req) != null){
                 return StudentGUI.getAllStudents(req);
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -73,7 +77,8 @@ public class StartServer {
             if(LogSessionSecurity.getSessionUser(req) != null){
                 return ClassesGUI.getAllClasses(req);
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -93,7 +98,8 @@ public class StartServer {
                 int id_student = Integer.parseInt(req.params(":idstudent"));
                 return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -109,7 +115,8 @@ public class StartServer {
                 }
                 return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -123,7 +130,8 @@ public class StartServer {
                 }
                 res.redirect("/stickers");
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -137,7 +145,8 @@ public class StartServer {
                 }
                 res.redirect("/students");
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
@@ -151,11 +160,11 @@ public class StartServer {
                 }
                 res.redirect("/classes");
             }else{
-                res.redirect("/index");
+                String param = req.pathInfo().replace("/", "?ref=%2F");
+                res.redirect("/login" + param);
             }
             return null;
         });
-
 
         /* Login */
         post("/login", (req, res) ->{
@@ -164,9 +173,10 @@ public class StartServer {
             if(TeacherCore.checkLogin(username, password)){
                 req.session(true);
                 req.session().attribute("username", username);
-                res.redirect("/index");
+                String dest = req.queryParams("ref");
+                res.redirect(dest);
             }else{
-                res.redirect("/login");
+                res.redirect(req.pathInfo());
             }
             return null;
         });
@@ -191,7 +201,6 @@ public class StartServer {
         post("/consult-student-stickers", (req, res) ->{
             if(LogSessionSecurity.getSessionUser(req) != null){
                 int id_student = Integer.parseInt(req.queryParams("student_name").split(" ")[0]);
-                // res.redirect("consult-student-stickers/" + id_student);
                 return HistoryStudentStickerGUI.getAllStickersStudents(id_student, req);
             }else{
                 res.redirect("/index");
