@@ -173,8 +173,11 @@ public class StartServer {
             if(TeacherCore.checkLogin(username, password)){
                 req.session(true);
                 req.session().attribute("username", username);
-                String dest = req.queryParams("ref");
-                res.redirect(dest);
+                if(req.queryParams().contains("ref")){
+                    String dest = req.queryParams("ref");
+                    res.redirect(dest);
+                }
+                res.redirect("/index");
             }else{
                 res.redirect(req.pathInfo());
             }

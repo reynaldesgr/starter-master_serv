@@ -17,8 +17,11 @@ public class LoginGUI {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
-        String dest = req.queryParams("ref");
-        input.put("ref", dest);
+
+        if(!req.queryParams().isEmpty()){
+            String dest = req.queryParams("ref");
+            input.put("ref", dest);
+        }
 
         input.put("login_title", "Se connecter");
         Writer output = new StringWriter();

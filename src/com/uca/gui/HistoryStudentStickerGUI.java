@@ -25,7 +25,7 @@ public class HistoryStudentStickerGUI {
 
         Map<String, Object> input = new HashMap<>();
         if(!req.session().attributes().isEmpty()){
-            input.put("user_log", req.session().attribute("username").toString());
+            input.put("userlog", req.session().attribute("username").toString());
         }
         input.put("student_stickers", StudentStickerCore.getAllStudentsStickers());
 

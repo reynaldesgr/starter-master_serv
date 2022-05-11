@@ -21,6 +21,7 @@
                         <a class="topnav_link" href="/put-stickers">Gestion des gommettes</a>
                         <a class="topnav_link" href="/put-classes"> Gestion des classes</a>
                     </div>
+
                 </div>
                     <a class="topnav_link" href="/disconnect">Déconnexion</a>
                 <#else>

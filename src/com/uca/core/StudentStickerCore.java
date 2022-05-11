@@ -1,7 +1,6 @@
 package com.uca.core;
 
-import com.uca.dao.StickerDAO;
-import com.uca.dao.StudentDAO;
+
 import com.uca.dao.StudentStickerDAO;
 import com.uca.entity.StickerEntity;
 import com.uca.entity.StudentEntity;

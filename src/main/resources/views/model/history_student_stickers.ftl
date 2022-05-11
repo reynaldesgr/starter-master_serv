@@ -12,7 +12,7 @@
 </head>
 
 <body xmlns="http://www.w3.org/1999/html">
-<@navbar.navbar user_log??/>
+<@navbar.navbar userlog??/>
     <main>
         <h1> Historique des gommettes </h1>
         <#if student_stickers??>

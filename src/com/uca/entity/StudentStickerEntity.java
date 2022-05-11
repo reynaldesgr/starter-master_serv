@@ -1,7 +1,6 @@
 package com.uca.entity;
 
 import java.sql.Date;
-import java.util.ArrayList;
 
 public class StudentStickerEntity {
     private int id;
