@@ -5,8 +5,8 @@ Vous pouvez démarrer avec la commande `./gradlew run`.
 + d'infos sur https://unicorn.artheriom.fr/
 
 -----------------------------------------------------------
-``Fonctionnalités rajoutés en + :``
-+ Hachage de mot de passe
+``Fonctionnalités rajoutées en + :``
++ Hachage de mot de passe (c.f. package ``security``)
 + Redirection vers le formulaire de connexion si utilisateur non-connecté + Redirection vers la page consultée avant la redirection vers le formulaire
 
 -----------------------------------------------------------
