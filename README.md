@@ -6,7 +6,7 @@ Vous pouvez démarrer avec la commande `./gradlew run`.
 
 -----------------------------------------------------------
 ``Fonctionnalités rajoutées en + :``
-+ Hachage de mot de passe (c.f. package ``security`` -> ``HashPasswordSecurity``)
++ Hachage de mot de passe (c.f. package ``security`` --> ``HashPasswordSecurity``)
 + Redirection vers le formulaire de connexion si utilisateur non-connecté + Redirection vers la page consultée avant la redirection vers le formulaire
 
 -----------------------------------------------------------
