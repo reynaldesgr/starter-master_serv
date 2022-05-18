@@ -15,16 +15,16 @@ public class _Initializer {
       //Init articles table
       /** Drop table, uncomment to use / comment to desactivate **/
         /*
-              statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
-              statement.executeUpdate();
-              statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
-              statement.executeUpdate();
-              statement = connection.prepareStatement("DROP TABLE IF EXISTS stickers");
-              statement.executeUpdate();
-              statement = connection.prepareStatement("DROP TABLE IF EXISTS classroom");
-              statement.executeUpdate();
-              statement = connection.prepareStatement("DROP TABLE IF EXISTS teachers");
-              statement.executeUpdate(); */
+      statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
+      statement.executeUpdate();
+      statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
+      statement.executeUpdate();
+      statement = connection.prepareStatement("DROP TABLE IF EXISTS stickers");
+      statement.executeUpdate();
+      statement = connection.prepareStatement("DROP TABLE IF EXISTS classroom");
+      statement.executeUpdate();
+      statement = connection.prepareStatement("DROP TABLE IF EXISTS teachers");
+      statement.executeUpdate(); */
       /**                                                     **/
 
 
