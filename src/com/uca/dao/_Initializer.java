@@ -14,7 +14,6 @@ public class _Initializer {
 
       //Init articles table
       /** Drop table, uncomment to use / comment to desactivate **/
-        /*
       statement = connection.prepareStatement("DROP TABLE IF EXISTS studentsStickers");
       statement.executeUpdate();
       statement = connection.prepareStatement("DROP TABLE IF EXISTS students");
@@ -24,12 +23,11 @@ public class _Initializer {
       statement = connection.prepareStatement("DROP TABLE IF EXISTS classroom");
       statement.executeUpdate();
       statement = connection.prepareStatement("DROP TABLE IF EXISTS teachers");
-      statement.executeUpdate(); */
+      statement.executeUpdate();
       /**                                                     **/
 
 
       // Teachers table //
-      /*
       statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS teachers (id_teacher int primary key auto_increment, firstname varchar(100), lastname varchar(100), username varchar(100), password varchar(100))");
       statement.executeUpdate();
 
@@ -48,13 +46,12 @@ public class _Initializer {
       // StudentsStickers table //
 
       statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS studentsStickers (id int primary key auto_increment, id_student int, id_sticker int, id_teacher int, reason varchar(500), date_sticker date, foreign key(id_sticker) references stickers(id_sticker), foreign key(id_teacher) references teachers(id_teacher), foreign key(id_student) references students(id_student)); ");
-      statement.executeUpdate(); */
+      statement.executeUpdate();
 
 
       /** Insert into, uncomment to use / comment to desactivate **/
 
       /** Teachers **/
-      /*
       statement = connection.prepareStatement("DELETE FROM teachers WHERE id_teacher = 0");
       statement.executeUpdate();
       statement = connection.prepareStatement("INSERT INTO teachers(id_teacher, firstname, lastname, username, password) VALUES (0, 'Aucun', 'Aucun', 'Aucun', 'Aucun');");
@@ -73,15 +70,15 @@ public class _Initializer {
       statement.setString(3, "julframb");
       statement.setString(4, HashPasswordSecurity.getHash("jufram15"));
       statement.executeUpdate();
+
       statement = connection.prepareStatement("INSERT INTO teachers(firstname, lastname, username, password) VALUES(?, ?, ?, ?);");
       statement.setString(2, "Jouveneau");
       statement.setString(1, "Bruno");
       statement.setString(3, "brunojouv");
       statement.setString(4, HashPasswordSecurity.getHash("bbj15"));
-      statement.executeUpdate(); */
+      statement.executeUpdate();
 
       /** Classroom **/
-      /*
       statement = connection.prepareStatement("DELETE  FROM classroom WHERE id_classroom = 0");
       statement.executeUpdate();
       statement = connection.prepareStatement("INSERT INTO classroom(id_classroom, classname, id_teacher) VALUES (0, 'Aucun', 0);");
@@ -94,10 +91,9 @@ public class _Initializer {
       statement.setInt(1, 2);
       statement.setString(2, "C2");
       statement.setInt(3, 1);
-      statement.executeUpdate(); */
+      statement.executeUpdate();
 
       /** Students **/
-      /*
       statement = connection.prepareStatement("INSERT INTO students(firstname, lastname, id_classroom) VALUES(?, ?, ?);");
       statement.setString(1, "Theodore");
       statement.setString(2, "Muillerez");
@@ -126,10 +122,9 @@ public class _Initializer {
       statement.setString(1, "Julie");
       statement.setString(2, "Roberts");
       statement.setInt(3, 2);
-      statement.executeUpdate(); */
+      statement.executeUpdate();
 
       /** Stickers **/
-      /*
       statement = connection.prepareStatement("INSERT INTO stickers(description, color) VALUES(?, ?);");
       statement.setString(1, "Mauvais comportement");
       statement.setString(2, "ROUGE");
@@ -141,8 +136,7 @@ public class _Initializer {
       statement = connection.prepareStatement("INSERT INTO stickers(description, color) VALUES(?, ?);");
       statement.setString(1, "Bonne participation");
       statement.setString(2, "BLEU");
-      statement.executeUpdate(); */
-
+      statement.executeUpdate();
       /**                                     **/
 
 
