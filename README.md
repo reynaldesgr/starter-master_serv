@@ -1,4 +1,4 @@
-# TP Web-Serveur
+# Projet : TP Web.-Serveur
 
 Vous pouvez démarrer avec la commande `./gradlew run`.
 
