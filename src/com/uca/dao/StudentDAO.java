@@ -61,7 +61,7 @@ public class StudentDAO extends _Generic<StudentEntity> {
             /* If there is a student who received a sticker */
             while(resultSet.next()){
                 PreparedStatement statement_del = this.connect.prepareStatement("DELETE FROM studentsStickers WHERE id_student = ?");
-                statement_del.setInt(1, resultSet.getInt("student"));
+                statement_del.setInt(1, resultSet.getInt("id_student"));
                 statement_del.executeUpdate();
             }
             PreparedStatement statement = this.connect.prepareStatement("DELETE FROM students WHERE id_student = ?;");
