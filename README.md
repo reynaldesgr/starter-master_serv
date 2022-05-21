@@ -18,6 +18,13 @@ N.B. : mot de passe des professeurs :
 
 -----------------------------------------------------------
 
+# Stickers
+Par défaut, les stickers sont :
+🟢 : Bon travail
+🔵 : Bonne participation / investissement
+🔴 : Mauvais comportement 
+
+# URIs
 ```/index```   : accéder à l'index.
 
 ```/students```: obtenir les étudiants.
