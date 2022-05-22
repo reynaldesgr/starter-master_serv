@@ -66,25 +66,34 @@
                     <br><br>
                 </form>
             </section>
-            <section>
+            <#if !empty??>
+                <#if empty_classes??>
                 <h2> Modifier un élève </h2>
-                    <p> Précisez l'élève et la nouvelle classe attribuée à cet élève. </p>
-                    <form id = "studentclass" method="post" action="/update-student">
-                        <label for="name">Elève</label>
-                    <SELECT name = "name" id="name" size = "1">
-                        <#list students as student>
-                            <OPTION value="${student.id_student}"> ${student.id_student} - ${student.firstName} ${student.lastName}
-                        </#list>
-                    </SELECT>
-                    <label for="studentclass"> dans la classe :</label>
-                    <SELECT name = "studentclass" id="studentclass" size = "1">
-                        <#list classes as class>
-                        <OPTION value="${class.idClass}"> ${class.idClass} - ${class.classname}
+                <section>
+                    <p> Veuillez ajouter une classe pour modifier un élève. </p>
+                </section>
+                <#else>
+                <section>
+                    <h2> Modifier un élève </h2>
+                        <p> Précisez l'élève et la nouvelle classe attribuée à cet élève. </p>
+                        <form id = "studentclass" method="post" action="/update-student">
+                            <label for="name">Elève</label>
+                        <SELECT name = "name" id="name" size = "1">
+                            <#list students as student>
+                                <OPTION value="${student.id_student}"> ${student.id_student} - ${student.firstName} ${student.lastName}
                             </#list>
-                    </SELECT>
-                    <input type="submit" name="sub_class" id="sub_class" value="Confirmer">
-                    </form>
-            </section>
+                        </SELECT>
+                        <label for="studentclass"> dans la classe :</label>
+                        <SELECT name = "studentclass" id="studentclass" size = "1">
+                            <#list classes as class>
+                            <OPTION value="${class.idClass}"> ${class.idClass} - ${class.classname}
+                                </#list>
+                        </SELECT>
+                        <input type="submit" name="sub_class" id="sub_class" value="Confirmer">
+                        </form>
+                </section>
+                </#if>
+            </#if>
         </#if>
         <br/>
         <a href="/index"> Retourner à l'accueil </a>

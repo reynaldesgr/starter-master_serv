@@ -39,7 +39,6 @@
             </table>
         </div>
         </#if>
-
         <#if userlog??>
             <#if stickers??>
                 <section>

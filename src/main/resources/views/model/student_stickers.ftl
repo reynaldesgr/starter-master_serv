@@ -42,8 +42,14 @@
             </table>
         </div>
         <#if userlog??>
+            <#if empty_stickers??>
+                <h2> Mettre une gommette </h2>
+                <section>
+                    <p> Veuillez ajouter des gommettes pour pouvoir en attribuer aux élèves. </p>
+                </section>
+            <#else>
             <section>
-                <h2> Mettre une gomette </h2>
+                <h2> Mettre une gommette </h2>
                 <form id="putsticker" method="post" action="/put-stickers">
                     <label for="student">Elève</label>
                     <SELECT name = "name" id="student" size = "1">
@@ -61,9 +67,17 @@
                     <input type="text" id="reason" name="reason"><br><br>
                     <input type="submit" name="sub" id="sub" value="Confirmer">
                 </form>
-                </section>
-                <section>
-                    <h2> Consulter les gommettes d'un élève </h2>
+            </section>
+            </#if>
+
+            <#if empty_students??>
+                <h2> Consulter les gommettes d'un élève </h2>
+                    <section>
+                        <p> Veuillez ajouter des élèves pour pouvoir consulter leurs gommettes. </p>
+                    </section>
+            <#else>
+            <section>
+                <h2> Consulter les gommettes d'un élève </h2>
                 <form id="putsticker" method="post" action="/consult-student-stickers">
                     <label for="student2">Elève</label>
                     <SELECT name = "student_name" id="student2" size="1">
@@ -75,6 +89,7 @@
                         <input type="submit" name="sub_consult" id="sub_consult" value="Confirmer">
                 </form>
             </section>
+            </#if>
         </#if>
         <br/>
         <a href="/index"> Retourner à l'accueil </a>

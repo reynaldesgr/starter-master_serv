@@ -23,7 +23,16 @@ public class ClassesGUI {
             input.put("userlog", req.session().attribute("username").toString());
         }
         input.put("classes", ClassCore.getAllClasses());
+
+        if(ClassCore.getAllClasses().isEmpty()){
+            input.put("empty", ClassCore.getAllClasses());
+        }
+
         input.put("teachers", TeacherCore.getAllTeachers());
+
+        if(TeacherCore.getAllTeachers().isEmpty()){
+            input.put("empty_teachers", TeacherCore.getAllTeachers());
+        }
 
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("model/classes.ftl");

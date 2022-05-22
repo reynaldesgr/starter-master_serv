@@ -26,6 +26,10 @@ public class IndexGUI {
         input.put("index_title", "Bienvenue");
         input.put("students", StudentCore.getAllStudents());
 
+        if(StudentCore.getAllStudents().isEmpty()){
+            input.put("empty_students", StudentCore.getAllStudents());
+        }
+
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("model/index.ftl");
         template.setOutputEncoding("UTF-8");

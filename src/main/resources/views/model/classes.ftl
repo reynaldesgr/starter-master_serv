@@ -56,6 +56,7 @@
                     <br><br>
                 </form>
             </section>
+            <#if !empty??>
             <section>
                 <h2> Modifier une classe </h2>
                 <p> Précisez la classe, son nouveau nom et son nouveau professeur </p>
@@ -77,6 +78,7 @@
                     <input type="submit" name="sub_class" id="sub_class" value="Confirmer">
                 </form>
             </section>
+            </#if>
         </#if>
         <br/>
         <a href="/index"> Retourner à l'accueil </a>

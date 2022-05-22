@@ -25,7 +25,17 @@ public class StudentGUI {
         }
         input.put("stickers", StickerCore.getAllStickers());
         input.put("students", StudentCore.getAllStudents());
+
+        if(StudentCore.getAllStudents().isEmpty()){
+            input.put("empty", StudentCore.getAllStudents());
+        }
+
         input.put("classes", ClassCore.getAllClasses());
+
+        if(ClassCore.getAllClasses().isEmpty()){
+            input.put("empty_classes", ClassCore.getAllClasses());
+        }
+
         input.put("id_stickers", StickerCore.getAllStickers());
 
         Writer output = new StringWriter();

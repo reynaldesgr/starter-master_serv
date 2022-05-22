@@ -23,7 +23,17 @@ public class StudentStickerGUI {
             input.put("userlog", req.session().attribute("username").toString());
         }
         input.put("stickers", StickerCore.getAllStickers());
+
+        if(StickerCore.getAllStickers().isEmpty()){
+            input.put("empty_stickers", StickerCore.getAllStickers());
+        }
+
         input.put("students", StudentCore.getAllStudents());
+
+        if(StudentCore.getAllStudents().isEmpty()){
+            input.put("empty_students", StudentCore.getAllStudents());
+        }
+
         input.put("id_stickers", StickerCore.getAllStickers());
 
         Writer output = new StringWriter();

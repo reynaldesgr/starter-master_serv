@@ -42,17 +42,18 @@
                     <a href="/put-classes" class = "button">Gestion des classes</a>
                     <a href="/disconnect" class = "button">Se déconnecter</a>
                 </div>
-
-                <h2> Consulter les gommettes d'un élève </h2>
-                <form id="putsticker_index" method="post" action="/consult-student-stickers">
-                    <label for="student_name">Nom </label>
-                    <SELECT name = "student_name" id="student_name" size="1">
-                        <#list students as student>
-                        <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
-                            </#list>
-                    </SELECT>
-                    <input type="submit" name="sub_consult" id="sub_consult" value="Confirmer">
-                </form>
+                <#if !empty_students??>
+                    <h2> Consulter les gommettes d'un élève </h2>
+                    <form id="putsticker_index" method="post" action="/consult-student-stickers">
+                        <label for="student_name">Nom </label>
+                        <SELECT name = "student_name" id="student_name" size="1">
+                            <#list students as student>
+                            <OPTION> ${student.id_student} - ${student.firstName} ${student.lastName}
+                                </#list>
+                        </SELECT>
+                        <input type="submit" name="sub_consult" id="sub_consult" value="Confirmer">
+                    </form>
+                </#if>
             <#else>
                 <div class="column">
                     <a href="/login" class = "button center-button">Se connecter</a>
