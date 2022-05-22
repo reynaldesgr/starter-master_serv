@@ -47,6 +47,11 @@
                 <section>
                     <p> Veuillez ajouter des gommettes pour pouvoir en attribuer aux élèves. </p>
                 </section>
+            <#elseif empty_students??>
+                <h2> Mettre une gommette </h2>
+                <section>
+                    <p> Veuillez ajouter des élèves pour pouvoir leur attribuer des gommettes. </p>
+                </section>
             <#else>
             <section>
                 <h2> Mettre une gommette </h2>

@@ -42,6 +42,12 @@
             </table>
         </div>
         <#if userlog??>
+            <#if empty_classes??>
+                <h2> Ajouter un élève </h2>
+                    <section>
+                        <p> Pas de classes disponibles. Ajoutez de nouvelles classes. </p>
+                    </section>
+            <#else>
             <section>
                 <h2> Ajouter un élève </h2>
                 <p> Précisez le nom, le prénom et la classe du nouvel élève. </p>
@@ -66,6 +72,7 @@
                     <br><br>
                 </form>
             </section>
+            </#if>
             <#if !empty??>
                 <#if empty_classes??>
                 <h2> Modifier un élève </h2>
